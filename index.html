@@ -108,9 +108,9 @@
 
         .hero h1 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.0rem, 7.2vw, 4.2rem);          /* уменьшили максимальный размер */
-            line-height: 0.98;                                 /* плотнее строки */
-            letter-spacing: clamp(1.5px, 1.2vw, 3px);         /* разрядка между буквами побольше */
+            font-size: clamp(2.0rem, 7.2vw, 4.2rem);
+            line-height: 0.98;
+            letter-spacing: clamp(1.5px, 1.2vw, 3px);
             margin-bottom: clamp(1rem, 3.5vw, 2.2rem);
             color: var(--text-dark);
             word-break: break-word;
@@ -397,62 +397,22 @@
             font-size: 14px;
         }
 
-        /* Responsive фикс именно для узких экранов, чтобы "РА" не отваливалась */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            .header-content {
-                align-items: center;
-                text-align: center;
-            }
-
-            .lang-switcher {
-                position: static;
-                margin-top: 10px;
-            }
-
-            .lang-switcher a {
-                padding: 5px 10px;
-                font-size: 12px;
-                margin: 0 3px;
-            }
-
-            .hero h1 {
-                letter-spacing: clamp(1.2px, 1.5vw, 2.2px);
-                font-size: clamp(2.0rem, 7vw, 3.8rem);
-            }
-
-            .cta-button,
-            .telegram-button {
-                width: 100%;
-            }
-
-            .advantages-grid,
-            .location-cards,
-            .model-steps {
-                grid-template-columns: 1fr;
-            }
+            .container { padding: 0 20px; }
+            .header-content { align-items: center; text-align: center; }
+            .lang-switcher { position: static; margin-top: 12px; align-self: center; }
+            .lang-switcher a { padding: 5px 10px; font-size: 12px; margin: 0 4px; }
+            .advantages-grid, .location-cards, .model-steps { grid-template-columns: 1fr; }
+            .cta-button, .telegram-button { width: 100%; text-align: center; }
+            .hero h1 { letter-spacing: clamp(1.2px, 1.5vw, 2.2px); }
         }
 
-        @media (max-width: 414px) {  /* iPhone 7/8/SE и подобные */
-            .hero h1 {
-                font-size: clamp(2.0rem, 8.5vw, 3.4rem);
-                letter-spacing: clamp(0.8px, 1.2vw, 1.8px);
-                line-height: 0.96;
-            }
-
-            .hero .subtitle {
-                font-size: clamp(0.95rem, 4.2vw, 1.15rem);
-                padding: 0 8px;
-            }
+        @media (max-width: 414px) {
+            .hero h1 { font-size: clamp(2.0rem, 8.5vw, 3.4rem); letter-spacing: clamp(0.8px, 1.2vw, 1.8px); line-height: 0.96; }
+            .hero .subtitle { font-size: clamp(0.95rem, 4.2vw, 1.15rem); padding: 0 8px; }
         }
 
-        h1, h2, h3, .section-title {
-            overflow-wrap: break-word;
-            hyphens: auto;
-        }
+        h1, h2, h3, .section-title { overflow-wrap: break-word; hyphens: auto; }
     </style>
 </head>
 <body>
@@ -463,8 +423,8 @@
                 <div class="logo">GREENPOWER DC</div>
                 <div class="tagline">Kazakhstan Data Center Infrastructure</div>
                 <div class="lang-switcher">
-                    <a href="greenpower-dc.html" class="active">RU</a>
-                    <a href="greenpower-dc-en.html">EN</a>
+                    <a href="/greenpower-dc.html" class="active">RU</a>
+                    <a href="/greenpower-dc-en.html">EN</a>
                 </div>
             </div>
         </div>
