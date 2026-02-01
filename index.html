@@ -110,7 +110,7 @@
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(2.1rem, 7.5vw, 4.8rem);
             line-height: 1.0;
-            letter-spacing: clamp(0px, 0.3vw, 1.2px);
+            letter-spacing: clamp(1px, 0.8vw, 2.5px);   /* разрядил чуть-чуть */
             margin-bottom: clamp(1rem, 3.5vw, 2.2rem);
             color: var(--text-dark);
             word-break: break-word;
@@ -153,7 +153,6 @@
             box-shadow: 0 8px 20px rgba(16,185,129,0.25);
         }
 
-        /* Остальные стили (stats, advantages, locations, business-model, contact, footer) — те же, что раньше */
         .stats-bar {
             padding: clamp(40px, 8vw, 60px) 0;
             background: var(--off-white);
@@ -200,6 +199,7 @@
         .business-model,
         .contact {
             padding: clamp(60px, 10vw, 80px) 0;
+            text-align: center;
         }
 
         .section-title {
@@ -207,7 +207,6 @@
             font-size: clamp(2.2rem, 8vw, 4.5rem);
             letter-spacing: 2px;
             margin-bottom: clamp(2rem, 6vw, 4rem);
-            text-align: center;
             color: var(--text-dark);
             position: relative;
         }
@@ -254,6 +253,8 @@
             height: 60px;
             margin-bottom: 20px;
             display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .advantage-icon svg {
@@ -297,6 +298,7 @@
         .location-features {
             list-style: none;
             margin-top: 20px;
+            text-align: left;
         }
 
         .location-features li {
@@ -332,13 +334,18 @@
         }
 
         .contact h2 {
+            font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(2.5rem, 9vw, 4rem);
-            margin-bottom: 30px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
         }
 
         .contact p {
             font-size: clamp(1.1rem, 4vw, 1.25rem);
-            margin-bottom: 50px;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-form {
@@ -390,10 +397,10 @@
             font-size: 14px;
         }
 
-        /* Улучшенный responsive для iPhone 7 и похожих */
+        /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 0 16px;
+                padding: 0 20px;
             }
 
             .header-content {
@@ -403,23 +410,14 @@
 
             .lang-switcher {
                 position: static;
-                margin-top: 10px;
+                margin-top: 12px;
+                align-self: center;
             }
 
             .lang-switcher a {
                 padding: 5px 10px;
                 font-size: 12px;
-                margin: 0 3px;
-            }
-
-            .hero h1 {
-                letter-spacing: 0.2px;
-                font-size: clamp(2.0rem, 7.2vw, 3.8rem); /* ключевой фикс для 375px */
-            }
-
-            .cta-button,
-            .telegram-button {
-                width: 100%;
+                margin: 0 4px;
             }
 
             .advantages-grid,
@@ -427,22 +425,30 @@
             .model-steps {
                 grid-template-columns: 1fr;
             }
+
+            .cta-button,
+            .telegram-button {
+                width: 100%;
+                text-align: center;
+            }
         }
 
-        @media (max-width: 414px) {  /* iPhone 7/8/SE и подобные */
+        @media (max-width: 480px) {
             .hero h1 {
-                font-size: clamp(1.95rem, 8.8vw, 3.4rem);
-                letter-spacing: 0px;
-                line-height: 0.98;
+                font-size: clamp(1.9rem, 9.5vw, 3.2rem);
+                letter-spacing: 1px;
             }
 
             .hero .subtitle {
-                font-size: 1.05rem;
-                padding: 0 10px;
+                font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+            }
+
+            .stats-bar .container {
+                grid-template-columns: 1fr;
             }
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, .section-title, .advantage-title {
             overflow-wrap: break-word;
             hyphens: auto;
         }
