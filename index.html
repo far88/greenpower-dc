@@ -100,7 +100,6 @@
             text-transform: uppercase;
         }
 
-        /* Hero Section */
         .hero {
             padding: clamp(60px, 12vw, 100px) 0 clamp(40px, 8vw, 70px);
             text-align: center;
@@ -109,9 +108,9 @@
 
         .hero h1 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.1rem, 8.5vw, 5.5rem);   /* ← сделано заметно меньше */
+            font-size: clamp(2.1rem, 8.5vw, 5.5rem);
             line-height: 1.05;
-            letter-spacing: 1px;                        /* ← уменьшил spacing */
+            letter-spacing: 1px;
             margin-bottom: clamp(1.2rem, 4vw, 2.5rem);
             color: var(--text-dark);
             word-break: break-word;
@@ -153,26 +152,246 @@
             box-shadow: 0 8px 20px rgba(16,185,129,0.25);
         }
 
-        /* Остальные стили (stats, advantages и т.д.) оставляем как в предыдущей версии, 
-           чтобы не раздувать код — они уже адаптивные */
+        .stats-bar {
+            padding: clamp(40px, 8vw, 60px) 0;
+            background: var(--off-white);
+        }
 
-        .stats-bar,
+        .stats-bar .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: clamp(20px, 4vw, 30px);
+        }
+
+        .stat-item {
+            background: var(--white);
+            padding: clamp(20px, 5vw, 30px);
+            border-left: 4px solid var(--primary-green);
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(16,185,129,0.15);
+            border-left-width: 6px;
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 9vw, 4.5rem);
+            color: var(--primary-green);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .advantages,
         .locations,
         .business-model,
         .contact {
-            padding: clamp(50px, 9vw, 80px) 0;
+            padding: clamp(60px, 10vw, 80px) 0;
         }
 
         .section-title {
+            font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(2.2rem, 8vw, 4.5rem);
-            margin-bottom: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 2px;
+            margin-bottom: clamp(2rem, 6vw, 4rem);
+            text-align: center;
+            color: var(--text-dark);
+            position: relative;
         }
 
-        /* Responsive фиксы */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-green);
+            border-radius: 2px;
+        }
+
+        .advantages-grid,
+        .location-cards,
+        .model-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: clamp(25px, 5vw, 40px);
+            margin-top: clamp(40px, 8vw, 80px);
+        }
+
+        .advantage-card,
+        .model-step {
+            background: var(--white);
+            padding: clamp(25px, 5vw, 40px);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            transition: all 0.4s ease;
+        }
+
+        .advantage-card:hover,
+        .model-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(16,185,129,0.15);
+            border-color: var(--primary-green);
+        }
+
+        .advantage-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .advantage-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .advantage-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .advantage-text {
+            font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .location-header {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 25px 30px;
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
+            letter-spacing: 2px;
+        }
+
+        .location-body {
+            padding: 30px;
+        }
+
+        .location-power {
+            font-size: clamp(2.5rem, 10vw, 4rem);
+            font-family: 'Bebas Neue', sans-serif;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .location-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .location-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-gray);
+            color: var(--text-gray);
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
+        }
+
+        .location-features li:last-child {
+            border-bottom: none;
+        }
+
+        .location-features li::before {
+            content: '▸ ';
+            color: var(--primary-green);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .model-step .step-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 72px;
+            color: var(--primary-green);
+            opacity: 0.15;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .model-step .step-title {
+            font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+            margin: 10px 0 15px;
+        }
+
+        .contact h2 {
+            font-size: clamp(2.5rem, 9vw, 4rem);
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            font-size: clamp(1.1rem, 4vw, 1.25rem);
+            margin-bottom: 50px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid var(--border-gray);
+            border-radius: 4px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .button-wrapper {
+            text-align: center;
+        }
+
+        footer {
+            padding: clamp(30px, 6vw, 40px) 0;
+            background: var(--white);
+            border-top: 1px solid var(--border-gray);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 0 16px;
+                padding: 0 20px;
             }
 
             .header-content {
@@ -192,19 +411,10 @@
                 margin: 0 4px;
             }
 
-            .logo {
-                font-size: clamp(2.6rem, 11vw, 3.8rem);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: clamp(1.9rem, 9.5vw, 3.2rem);  /* ещё меньше для узких экранов */
-                letter-spacing: 0.5px;
-            }
-
-            .hero .subtitle {
-                font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+            .advantages-grid,
+            .location-cards,
+            .model-steps {
+                grid-template-columns: 1fr;
             }
 
             .cta-button,
@@ -214,7 +424,22 @@
             }
         }
 
-        h1, h2, h3, .section-title {
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: clamp(1.9rem, 9.5vw, 3.2rem);
+                letter-spacing: 0.5px;
+            }
+
+            .hero .subtitle {
+                font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+            }
+
+            .stats-bar .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        h1, h2, h3, .section-title, .advantage-title {
             overflow-wrap: break-word;
             hyphens: auto;
         }
@@ -247,31 +472,186 @@
             </div>
         </section>
 
-        <!-- Остальные секции остаются без изменений (stats-bar, advantages, locations, business-model, contact, footer) 
-             — вставь их из предыдущей версии, если нужно. Они уже адаптивные. -->
-
-        <!-- Для полноты примера оставлю stats-bar -->
         <section class="stats-bar">
             <div class="container">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px;">
-                    <div class="stat-item">
-                        <div class="stat-number">$0.035</div>
-                        <div class="stat-label">От центов за кВт/ч</div>
+                <div class="stat-item">
+                    <div class="stat-number">$0.035</div>
+                    <div class="stat-label">От центов за кВт/ч</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">92-99%</div>
+                    <div class="stat-label">Load Factor для AI/Mining</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">TOP-5</div>
+                    <div class="stat-label">Казахстан в мировом рейтинге локаций</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages">
+            <div class="container">
+                <h2 class="section-title">ПОЧЕМУ КАЗАХСТАН?</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="advantage-title">Дешёвая энергия</h3>
+                        <p class="advantage-text">Тариф от $0.035/кВт·ч. Долгосрочная аренда земли 20-30 лет без капитальных затрат на строительство.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">92-99%</div>
-                        <div class="stat-label">Load Factor для AI/Mining</div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="advantage-title">Правовая определённость</h3>
+                        <p class="advantage-text">Специальная экономическая зона Астана (МФЦА) с английским правом и международной арбитражной политикой. Криптовалютный майнинг — лицензированный вид деятельности с 2023 года.</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">TOP-5</div>
-                        <div class="stat-label">Казахстан в мировом рейтинге локаций</div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="advantage-title">Растущий рынок</h3>
+                        <p class="advantage-text">Мировой спрос на мощности для AI/HPC в период 2025-2030 превысит +1200% (Goldman Sachs). Казахстан входит в TOP-5 самых привлекательных локаций 2025 года.</p>
+                    </div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18"/>
+                                <path d="M9 21V9"/>
+                            </svg>
+                        </div>
+                        <h3 class="advantage-title">Готовая инфраструктура</h3>
+                        <p class="advantage-text">Близость к электрическим сетям, земельные участки и питание на майнинг. Выделенная электрическая мощность 10-50 МВт на объект.</p>
+                    </div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="advantage-title">Стабильное энергоснабжение</h3>
+                        <p class="advantage-text">Гарантированное подключение к сетям. Соответствие регуляторным требованиям. Юридическое сопровождение сделки.</p>
+                    </div>
+
+                    <div class="advantage-card">
+                        <div class="advantage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
+                                <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/>
+                                <line x1="8" y1="16" x2="8.01" y2="16"/>
+                                <line x1="8" y1="20" x2="8.01" y2="20"/>
+                                <line x1="12" y1="18" x2="12.01" y2="18"/>
+                                <line x1="12" y1="22" x2="12.01" y2="22"/>
+                                <line x1="16" y1="16" x2="16.01" y2="16"/>
+                                <line x1="16" y1="20" x2="16.01" y2="20"/>
+                            </svg>
+                        </div>
+                        <h3 class="advantage-title">Климатические условия</h3>
+                        <p class="advantage-text">Холодный климат значительно снижает расходы на охлаждение оборудования — критический фактор для дата-центров и майнинговых ферм.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ... здесь были бы advantages, locations и т.д. ... -->
+        <section class="locations">
+            <div class="container">
+                <h2 class="section-title">ДОСТУПНЫЕ ЛОКАЦИИ</h2>
+                <div class="location-cards">
+                    <div class="location-card">
+                        <div class="location-header">КАРАГАНДА</div>
+                        <div class="location-body">
+                            <div class="location-power">20 МВт</div>
+                            <ul class="location-features">
+                                <li>Стратегическое расположение в промышленном регионе</li>
+                                <li>Развитая инфраструктура и доступ к транспортным магистралям</li>
+                                <li>Стабильное энергоснабжение и близость к крупным городам</li>
+                                <li>Идеально подходит для крупных дата-центров и AI-кластеров</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="business-model">
+            <div class="container">
+                <h2 class="section-title">КАК ЭТО РАБОТАЕТ</h2>
+                <div class="model-steps">
+                    <div class="model-step">
+                        <div class="step-number">01</div>
+                        <h3 class="step-title">Подписание договора</h3>
+                        <p class="step-text">Подписание договора с управляющей компанией, которая обладает всеми необходимыми лицензиями и питанием на майнинг</p>
+                    </div>
+
+                    <div class="model-step">
+                        <div class="step-number">02</div>
+                        <h3 class="step-title">Подписание МОА</h3>
+                        <p class="step-text">Меморандум с инвестором, согласование условий и технических деталей</p>
+                    </div>
+
+                    <div class="model-step">
+                        <div class="step-number">03</div>
+                        <h3 class="step-title">Авансовый платёж</h3>
+                        <p class="step-text">Получение аванса за доступ к готовой инфраструктуре (земля + энергия)</p>
+                    </div>
+
+                    <div class="model-step">
+                        <div class="step-number">04</div>
+                        <h3 class="step-title">Строительство</h3>
+                        <p class="step-text">Инвестор строит объект на своё оборудование (мы НЕ строим)</p>
+                    </div>
+
+                    <div class="model-step">
+                        <div class="step-number">05</div>
+                        <h3 class="step-title">Эксплуатация</h3>
+                        <p class="step-text">Ежемесячные платежи за энергию и аренду земельного участка</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>НАЧНИТЕ СЕГОДНЯ</h2>
+                <p>Свяжитесь с нами для получения детального предложения и обсуждения условий</p>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Телефон">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+                    </div>
+                    <div class="button-wrapper">
+                        <button type="submit" class="cta-button">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+                    </div>
+                </form>
+                
+                <div style="margin-top: 40px;">
+                    <p style="font-size: 18px; color: var(--text-gray); margin-bottom: 20px;">Или напишите напрямую в Telegram:</p>
+                    <a href="https://t.me/cryptocappone" class="telegram-button" target="_blank">НАПИСАТЬ В TELEGRAM</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -280,6 +660,29 @@
         </div>
     </footer>
 
-    <!-- Скрипт формы и smooth scroll — оставь свой, если он работает -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const mailto = `mailto:farabiznes@gmail.com?subject=${encodeURIComponent('Заявка с сайта')}&body=${encodeURIComponent(
+                'Имя: ' + formData.get('name') + '\n' +
+                'Email: ' + formData.get('email') + '\n' +
+                'Телефон: ' + formData.get('phone') + '\n\n' +
+                'Сообщение:\n' + formData.get('message')
+            )}`;
+            window.location.href = mailto;
+            this.reset();
+        });
+    </script>
 </body>
 </html>
