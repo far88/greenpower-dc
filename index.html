@@ -108,15 +108,15 @@
 
         .hero h1 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2rem, 7.8vw, 4.8rem);          /* ещё меньше max, чтобы лучше влезало */
-            line-height: 1.05;
-            letter-spacing: clamp(0.3px, 0.35vw, 1.2px);
-            margin-bottom: clamp(1.2rem, 4vw, 2.5rem);
+            font-size: clamp(2.1rem, 7.5vw, 4.8rem);
+            line-height: 1.0;
+            letter-spacing: clamp(0px, 0.3vw, 1.2px);
+            margin-bottom: clamp(1rem, 3.5vw, 2.2rem);
             color: var(--text-dark);
             word-break: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
-            text-wrap: balance;                             /* балансирует строки */
+            text-wrap: balance;
         }
 
         .hero .subtitle {
@@ -153,6 +153,7 @@
             box-shadow: 0 8px 20px rgba(16,185,129,0.25);
         }
 
+        /* Остальные стили (stats, advantages, locations, business-model, contact, footer) — те же, что раньше */
         .stats-bar {
             padding: clamp(40px, 8vw, 60px) 0;
             background: var(--off-white);
@@ -389,10 +390,10 @@
             font-size: 14px;
         }
 
-        /* Responsive */
+        /* Улучшенный responsive для iPhone 7 и похожих */
         @media (max-width: 768px) {
             .container {
-                padding: 0 20px;
+                padding: 0 16px;
             }
 
             .header-content {
@@ -402,18 +403,23 @@
 
             .lang-switcher {
                 position: static;
-                margin-top: 12px;
-                align-self: center;
+                margin-top: 10px;
             }
 
             .lang-switcher a {
                 padding: 5px 10px;
                 font-size: 12px;
-                margin: 0 4px;
+                margin: 0 3px;
             }
 
             .hero h1 {
-                letter-spacing: 0.5px;
+                letter-spacing: 0.2px;
+                font-size: clamp(2.0rem, 7.2vw, 3.8rem); /* ключевой фикс для 375px */
+            }
+
+            .cta-button,
+            .telegram-button {
+                width: 100%;
             }
 
             .advantages-grid,
@@ -421,30 +427,22 @@
             .model-steps {
                 grid-template-columns: 1fr;
             }
-
-            .cta-button,
-            .telegram-button {
-                width: 100%;
-                text-align: center;
-            }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 414px) {  /* iPhone 7/8/SE и подобные */
             .hero h1 {
-                font-size: clamp(1.9rem, 9.2vw, 3.1rem);
+                font-size: clamp(1.95rem, 8.8vw, 3.4rem);
                 letter-spacing: 0px;
+                line-height: 0.98;
             }
 
             .hero .subtitle {
-                font-size: clamp(0.95rem, 4.2vw, 1.15rem);
-            }
-
-            .stats-bar .container {
-                grid-template-columns: 1fr;
+                font-size: 1.05rem;
+                padding: 0 10px;
             }
         }
 
-        h1, h2, h3, .section-title, .advantage-title {
+        h1, h2, h3 {
             overflow-wrap: break-word;
             hyphens: auto;
         }
@@ -481,7 +479,7 @@
             <div class="container">
                 <div class="stat-item">
                     <div class="stat-number">$0.035</div>
-                    <div class="stat-label">От 3 центов за кВт/ч</div>
+                    <div class="stat-label">От 3,5 центов за кВт/ч</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">92-99%</div>
@@ -505,7 +503,7 @@
                             </svg>
                         </div>
                         <h3 class="advantage-title">Дешёвая энергия</h3>
-                        <p class="advantage-text">Тариф от $0.035/кВт·ч. Долгосрочная аренда земли 20-30 лет без капитальных затрат на строительство.</p>
+                        <p class="advantage-text">Тариф от $0.035/кВт·ч. Долгосрочная аренда земли - 20-30 лет.</p>
                     </div>
 
                     <div class="advantage-card">
@@ -527,7 +525,7 @@
                             </svg>
                         </div>
                         <h3 class="advantage-title">Растущий рынок</h3>
-                        <p class="advantage-text">Мировой спрос на мощности для AI/HPC в период 2025-2030 превысит +1200% (Goldman Sachs). Казахстан входит в TOP-5 самых привлекательных локаций 2025 года.</p>
+                        <p class="advantage-text">Мировой спрос на мощности для AI/HPC в период 2026-2030 превысит +1200% (Goldman Sachs). Казахстан входит в TOP-5 самых привлекательных локаций 2026 года.</p>
                     </div>
 
                     <div class="advantage-card">
@@ -616,7 +614,7 @@
                     <div class="model-step">
                         <div class="step-number">04</div>
                         <h3 class="step-title">Строительство</h3>
-                        <p class="step-text">Инвестор строит объект на своё оборудование (мы НЕ строим)</p>
+                        <p class="step-text">Инвестор строит объект на своё оборудование</p>
                     </div>
 
                     <div class="model-step">
