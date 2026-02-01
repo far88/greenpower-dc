@@ -33,11 +33,6 @@
             line-height: 1.6;
         }
 
-        /* Remove grid background */
-        body::before {
-            display: none;
-        }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -46,7 +41,6 @@
             z-index: 1;
         }
 
-        /* Language Switcher */
         .lang-switcher {
             position: absolute;
             top: 35px;
@@ -74,7 +68,6 @@
             border-color: var(--primary-green);
         }
 
-        /* Header */
         header {
             padding: 30px 0;
             position: relative;
@@ -84,19 +77,13 @@
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100px); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
         }
 
         .logo {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 48px;
+            font-size: clamp(2.5rem, 9vw, 4rem);
             letter-spacing: 4px;
             color: var(--primary-green);
             display: inline-block;
@@ -111,50 +98,36 @@
             text-transform: uppercase;
         }
 
-        /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
+            padding: clamp(70px, 15vw, 120px) 0 clamp(50px, 10vw, 80px);
             text-align: center;
-            position: relative;
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
             animation: fadeIn 1s ease-out 0.3s backwards;
         }
 
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 96px;
-            line-height: 1.1;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
+            font-size: clamp(2.5rem, 11vw, 6.5rem);
+            line-height: 1.05;
+            letter-spacing: 2px;
+            margin-bottom: clamp(1.5rem, 5vw, 3rem);
             color: var(--text-dark);
-            position: relative;
-            z-index: 1;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         .hero .subtitle {
-            font-size: 24px;
+            font-size: clamp(1.1rem, 4.5vw, 1.5rem);
             color: var(--text-gray);
             max-width: 800px;
             margin: 0 auto 50px;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
+            line-height: 1.7;
         }
 
         .hero .subtitle span {
@@ -162,13 +135,14 @@
             font-weight: 700;
         }
 
-        .cta-button {
+        .cta-button,
+        .telegram-button {
             display: inline-block;
-            padding: 20px 50px;
+            padding: clamp(1rem, 4vw, 1.4rem) clamp(2rem, 6vw, 3rem);
             background: var(--primary-green);
             color: var(--white);
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
             letter-spacing: 2px;
             text-decoration: none;
             border: none;
@@ -177,107 +151,71 @@
             overflow: hidden;
             transition: all 0.3s ease;
             border-radius: 4px;
-            z-index: 1;
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
+        .cta-button:hover,
+        .telegram-button:hover {
             background: var(--dark-green);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
 
-        /* Stats Bar */
         .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 60px 0;
+            padding: clamp(40px, 8vw, 60px) 0;
             background: var(--off-white);
-            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .stats-bar .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: clamp(20px, 4vw, 30px);
         }
 
         .stat-item {
             background: var(--white);
-            padding: 30px;
+            padding: clamp(20px, 5vw, 30px);
             border-left: 4px solid var(--primary-green);
             border-radius: 4px;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--light-green);
-            transition: width 0.5s ease;
-        }
-
-        .stat-item:hover::before {
-            width: 100%;
         }
 
         .stat-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 10px 25px rgba(16,185,129,0.15);
             border-left-width: 6px;
         }
 
         .stat-number {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 56px;
+            font-size: clamp(2.5rem, 9vw, 4.5rem);
             color: var(--primary-green);
             line-height: 1;
             margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: clamp(0.9rem, 3.5vw, 1.1rem);
             color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
         }
 
-        /* Advantages Section */
-        .advantages {
-            padding: 80px 0;
-            background: var(--white);
+        .advantages,
+        .locations,
+        .business-model,
+        .contact {
+            padding: clamp(60px, 10vw, 80px) 0;
         }
 
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 72px;
+            font-size: clamp(2.5rem, 9vw, 5rem);
             letter-spacing: 3px;
-            margin-bottom: 60px;
+            margin-bottom: clamp(2rem, 6vw, 4rem);
             text-align: center;
             color: var(--text-dark);
             position: relative;
-            display: inline-block;
-            width: 100%;
         }
 
         .section-title::after {
@@ -292,41 +230,28 @@
             border-radius: 2px;
         }
 
-        .advantages-grid {
+        .advantages-grid,
+        .location-cards,
+        .model-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: clamp(25px, 5vw, 40px);
+            margin-top: clamp(40px, 8vw, 80px);
         }
 
-        .advantage-card {
+        .advantage-card,
+        .model-step {
             background: var(--white);
-            padding: 40px;
+            padding: clamp(25px, 5vw, 40px);
             border: 1px solid var(--border-gray);
             border-radius: 8px;
-            position: relative;
             transition: all 0.4s ease;
-            overflow: hidden;
         }
 
-        .advantage-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 0;
-            background: var(--primary-green);
-            transition: height 0.4s ease;
-        }
-
-        .advantage-card:hover::before {
-            height: 100%;
-        }
-
-        .advantage-card:hover {
+        .advantage-card:hover,
+        .model-step:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 20px 40px rgba(16,185,129,0.15);
             border-color: var(--primary-green);
         }
 
@@ -334,74 +259,33 @@
             width: 60px;
             height: 60px;
             margin-bottom: 20px;
-            display: block;
-        }
-
-        .advantage-icon svg {
-            width: 100%;
-            height: 100%;
         }
 
         .advantage-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
-            color: var(--text-dark);
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
             margin-bottom: 15px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
-        .advantage-text {
-            font-size: 16px;
+        .advantage-text,
+        .step-text,
+        .location-features li {
+            font-size: clamp(0.95rem, 3.8vw, 1.1rem);
             color: var(--text-gray);
-            line-height: 1.8;
-        }
-
-        /* Locations Section */
-        .locations {
-            padding: 80px 0;
-            background: var(--off-white);
-        }
-
-        .location-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 50px;
-            margin-top: 80px;
-        }
-
-        .location-card {
-            background: var(--white);
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            padding: 0;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.4s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .location-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
-            border-color: var(--primary-green);
+            line-height: 1.7;
         }
 
         .location-header {
             background: var(--primary-green);
             color: var(--white);
             padding: 25px 30px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 36px;
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
             letter-spacing: 2px;
         }
 
-        .location-body {
-            padding: 30px;
-        }
-
         .location-power {
-            font-size: 48px;
-            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 10vw, 4rem);
             color: var(--primary-green);
             margin-bottom: 20px;
         }
@@ -414,8 +298,6 @@
         .location-features li {
             padding: 12px 0;
             border-bottom: 1px solid var(--border-gray);
-            color: var(--text-gray);
-            font-size: 15px;
         }
 
         .location-features li:last-child {
@@ -429,128 +311,19 @@
             margin-right: 10px;
         }
 
-        /* Pricing Section */
-        .pricing {
-            padding: 80px 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 65, 0.03) 100%);
-        }
-
-        .price-table {
-            margin-top: 80px;
-            background: var(--mid-dark);
-            border: 2px solid var(--power-green);
-            overflow: hidden;
-        }
-
-        .price-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .price-table th {
-            background: var(--power-green);
-            color: var(--dark-bg);
-            padding: 25px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
-            letter-spacing: 2px;
-            text-align: left;
-        }
-
-        .price-table td {
-            padding: 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 18px;
-        }
-
-        .price-table tr:hover {
-            background: rgba(0, 255, 65, 0.1);
-        }
-
-        .price-highlight {
-            color: var(--power-green);
-            font-weight: 700;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Business Model */
-        .business-model {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .model-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 80px;
-        }
-
-        .model-step {
-            background: var(--white);
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            border: 1px solid var(--border-gray);
-            border-top: 4px solid var(--primary-green);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .model-step:hover {
-            transform: translateY(-10px);
-            background: var(--light-green);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
-        }
-
-        .step-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 72px;
-            color: var(--primary-green);
-            opacity: 0.2;
-            line-height: 1;
-        }
-
-        .step-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            color: var(--text-dark);
-            margin: 20px 0 15px;
-            letter-spacing: 1px;
-        }
-
-        .step-text {
-            color: var(--text-gray);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            border-top: 1px solid var(--border-gray);
-        }
-
         .contact h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 64px;
+            font-size: clamp(2.5rem, 9vw, 4rem);
             margin-bottom: 30px;
-            color: var(--text-dark);
-            letter-spacing: 3px;
         }
 
         .contact p {
-            font-size: 20px;
-            color: var(--text-gray);
+            font-size: clamp(1.1rem, 4vw, 1.25rem);
             margin-bottom: 50px;
         }
 
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
-            text-align: left;
         }
 
         .form-group {
@@ -561,100 +334,30 @@
         .form-group textarea {
             width: 100%;
             padding: 15px 20px;
-            font-family: 'Space Mono', monospace;
             font-size: 16px;
             border: 2px solid var(--border-gray);
             border-radius: 4px;
-            background: var(--white);
-            color: var(--text-dark);
-            transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            outline: none;
             border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+            outline: none;
         }
 
         .form-group textarea {
-            resize: vertical;
             min-height: 120px;
-        }
-
-        .contact-form .cta-button {
-            width: auto;
-            margin-top: 10px;
-            padding: 15px 40px;
-            font-size: 22px;
+            resize: vertical;
         }
 
         .button-wrapper {
             text-align: center;
         }
 
-        .contact .telegram-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--primary-green);
-            color: var(--white);
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            letter-spacing: 2px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-            z-index: 1;
-        }
-
-        .contact .telegram-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-        }
-
-        .contact .telegram-button:hover::before {
-            left: 100%;
-        }
-
-        .contact .telegram-button:hover {
-            background: var(--dark-green);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-
-        #formMessage {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 4px;
-            font-size: 16px;
-            display: none;
-        }
-
-        #formMessage.success {
-            background: #d1fae5;
-            color: #065f46;
-            border: 1px solid var(--primary-green);
-        }
-
-        #formMessage.error {
-            background: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #ef4444;
-        }
-
-        /* Footer */
         footer {
-            padding: 40px 0;
+            padding: clamp(30px, 6vw, 40px) 0;
             background: var(--white);
             border-top: 1px solid var(--border-gray);
             text-align: center;
@@ -665,36 +368,20 @@
             font-size: 14px;
         }
 
-        /* Scroll animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 56px;
+            .container {
+                padding: 0 20px;
             }
 
-            .logo {
-                font-size: 36px;
+            .lang-switcher {
+                top: 20px;
+                right: 20px;
             }
 
-            .section-title {
-                font-size: 48px;
+            .lang-switcher a {
+                padding: 6px 12px;
+                font-size: 13px;
             }
 
             .advantages-grid,
@@ -703,17 +390,36 @@
                 grid-template-columns: 1fr;
             }
 
-            .container {
-                padding: 0 20px;
+            .cta-button,
+            .telegram-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 50px 0 30px;
             }
 
-            .lang-switcher {
-                right: 20px;
+            .hero h1 {
+                font-size: clamp(2.2rem, 10vw, 3.4rem);
             }
+
+            .stats-bar .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        h1, h2, h3, .section-title, .stat-label, .advantage-title {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="container">
             <div class="lang-switcher">
@@ -738,20 +444,18 @@
         </section>
 
         <section class="stats-bar">
-            <div class="container" style="max-width: 100%;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                    <div class="stat-item">
-                        <div class="stat-number">$0.035</div>
-                        <div class="stat-label">От центов за кВт/ч</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">92-99%</div>
-                        <div class="stat-label">Load Factor для AI/Mining</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">TOP-5</div>
-                        <div class="stat-label">Казахстан в мировом рейтинге локаций</div>
-                    </div>
+            <div class="container">
+                <div class="stat-item">
+                    <div class="stat-number">$0.035</div>
+                    <div class="stat-label">От центов за кВт/ч</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">92-99%</div>
+                    <div class="stat-label">Load Factor для AI/Mining</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">TOP-5</div>
+                    <div class="stat-label">Казахстан в мировом рейтинге локаций</div>
                 </div>
             </div>
         </section>
@@ -760,7 +464,7 @@
             <div class="container">
                 <h2 class="section-title">ПОЧЕМУ КАЗАХСТАН?</h2>
                 <div class="advantages-grid">
-                    <div class="advantage-card fade-in-up">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
@@ -770,7 +474,7 @@
                         <p class="advantage-text">Тариф от $0.035/кВт·ч. Долгосрочная аренда земли 20-30 лет без капитальных затрат на строительство.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up delay-1">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <circle cx="12" cy="12" r="10"/>
@@ -781,7 +485,7 @@
                         <p class="advantage-text">Специальная экономическая зона Астана (МФЦА) с английским правом и международной арбитражной политикой. Криптовалютный майнинг — лицензированный вид деятельности с 2023 года.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up delay-2">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
@@ -792,7 +496,7 @@
                         <p class="advantage-text">Мировой спрос на мощности для AI/HPC в период 2025-2030 превысит +1200% (Goldman Sachs). Казахстан входит в TOP-5 самых привлекательных локаций 2025 года.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -804,7 +508,7 @@
                         <p class="advantage-text">Близость к электрическим сетям, земельные участки и питание на майнинг. Выделенная электрическая мощность 10-50 МВт на объект.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up delay-1">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -814,7 +518,7 @@
                         <p class="advantage-text">Гарантированное подключение к сетям. Соответствие регуляторным требованиям. Юридическое сопровождение сделки.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up delay-2">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/>
@@ -894,7 +598,7 @@
             <div class="container">
                 <h2>НАЧНИТЕ СЕГОДНЯ</h2>
                 <p>Свяжитесь с нами для получения детального предложения и обсуждения условий</p>
-                
+
                 <form id="contactForm" class="contact-form">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Ваше имя" required>
@@ -912,7 +616,7 @@
                         <button type="submit" class="cta-button">ОТПРАВИТЬ СООБЩЕНИЕ</button>
                     </div>
                 </form>
-                
+
                 <div style="margin-top: 40px;">
                     <p style="font-size: 18px; color: var(--text-gray); margin-bottom: 20px;">Или напишите напрямую в Telegram:</p>
                     <a href="https://t.me/cryptocappone" class="telegram-button" target="_blank">НАПИСАТЬ В TELEGRAM</a>
@@ -923,7 +627,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 GreenPower DC Kazakhstan.</p>
+            <p>© 2026 GreenPower DC Kazakhstan.</p>
         </div>
     </footer>
 
@@ -934,31 +638,9 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
         });
 
         // Contact Form Handler
@@ -974,7 +656,6 @@
                 message: document.getElementById('message').value
             };
 
-            // Формируем mailto ссылку
             const subject = encodeURIComponent('Новая заявка с сайта GreenPower DC');
             const body = encodeURIComponent(
                 `Имя: ${formData.name}\n` +
@@ -984,33 +665,12 @@
             );
             
             const mailtoLink = `mailto:farabiznes@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Открываем почтовый клиент
             window.location.href = mailtoLink;
             
-            // Очищаем форму
             contactForm.reset();
             
-            // Показываем сообщение об успехе
-            showMessage('Ваш почтовый клиент должен открыться. Если этого не произошло, напишите нам напрямую на farabiznes@gmail.com или в Telegram.', 'success');
+            alert('Ваше сообщение должно открыться в почтовом клиенте. Если не открылось — напишите нам в Telegram или на farabiznes@gmail.com');
         });
-
-        function showMessage(text, type) {
-            let messageDiv = document.getElementById('formMessage');
-            if (!messageDiv) {
-                messageDiv = document.createElement('div');
-                messageDiv.id = 'formMessage';
-                contactForm.appendChild(messageDiv);
-            }
-            
-            messageDiv.textContent = text;
-            messageDiv.className = type;
-            messageDiv.style.display = 'block';
-            
-            setTimeout(() => {
-                messageDiv.style.display = 'none';
-            }, 8000);
-        }
     </script>
 </body>
 </html>
