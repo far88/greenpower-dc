@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenPower DC Kazakhstan — Ready-Made Infrastructure for AI & Mining</title>
+    <title>GreenPower DC Kazakhstan — Ready Infrastructure for AI & Mining</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -41,115 +41,90 @@
             z-index: 1;
         }
 
-        /* Language Switcher */
+        header {
+            padding: 20px 0 30px;
+            position: relative;
+            border-bottom: 1px solid var(--border-gray);
+            background: var(--white);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+        }
+
         .lang-switcher {
             position: absolute;
-            top: 35px;
-            right: 40px;
+            top: 0;
+            right: 0;
             z-index: 10;
         }
 
         .lang-switcher a {
             display: inline-block;
-            padding: 8px 16px;
-            margin-left: 5px;
+            padding: 6px 12px;
+            margin-left: 8px;
             background: var(--white);
             color: var(--text-dark);
             text-decoration: none;
             border: 1px solid var(--border-gray);
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 500;
             transition: all 0.3s ease;
         }
 
         .lang-switcher a:hover,
         .lang-switcher a.active {
             background: var(--primary-green);
-            color: var(--white);
+            color: white;
             border-color: var(--primary-green);
-        }
-
-        /* Header */
-        header {
-            padding: 30px 0;
-            position: relative;
-            border-bottom: 1px solid var(--border-gray);
-            background: var(--white);
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         .logo {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 48px;
-            letter-spacing: 4px;
+            font-size: clamp(2.4rem, 9vw, 4.2rem);
+            letter-spacing: 3px;
             color: var(--primary-green);
-            display: inline-block;
+            line-height: 1;
         }
 
         .tagline {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
+            font-size: clamp(0.8rem, 3vw, 0.95rem);
             color: var(--text-gray);
-            letter-spacing: 2px;
-            margin-top: 5px;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
             text-transform: uppercase;
         }
 
-        /* Hero Section */
         .hero {
-            padding: 120px 0 80px;
+            padding: clamp(60px, 12vw, 100px) 0 clamp(40px, 8vw, 70px);
             text-align: center;
-            position: relative;
             background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            animation: fadeIn 1s ease-out 0.3s backwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 1;
         }
 
         .hero h1 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 96px;
-            line-height: 1.1;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
+            font-size: clamp(2.0rem, 7.2vw, 4.2rem);
+            line-height: 0.98;
+            letter-spacing: clamp(1.5px, 1.2vw, 3px);
+            margin-bottom: clamp(1rem, 3.5vw, 2.2rem);
             color: var(--text-dark);
-            position: relative;
-            z-index: 1;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            text-wrap: balance;
         }
 
         .hero .subtitle {
-            font-size: 24px;
+            font-size: clamp(1rem, 4vw, 1.35rem);
             color: var(--text-gray);
-            max-width: 800px;
-            margin: 0 auto 50px;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
+            max-width: 820px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
         }
 
         .hero .subtitle span {
@@ -157,122 +132,83 @@
             font-weight: 700;
         }
 
-        .cta-button {
+        .cta-button,
+        .telegram-button {
             display: inline-block;
-            padding: 20px 50px;
+            padding: clamp(0.9rem, 3.5vw, 1.3rem) clamp(1.8rem, 5vw, 2.8rem);
             background: var(--primary-green);
             color: var(--white);
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            letter-spacing: 2px;
+            font-size: clamp(1.2rem, 4.5vw, 1.7rem);
+            letter-spacing: 1.5px;
             text-decoration: none;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
             border-radius: 4px;
-            z-index: 1;
+            transition: all 0.3s ease;
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
+        .cta-button:hover,
+        .telegram-button:hover {
             background: var(--dark-green);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 20px rgba(16,185,129,0.25);
         }
 
-        /* Stats Bar */
         .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 60px 0;
+            padding: clamp(40px, 8vw, 60px) 0;
             background: var(--off-white);
-            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .stats-bar .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: clamp(20px, 4vw, 30px);
         }
 
         .stat-item {
             background: var(--white);
-            padding: 30px;
+            padding: clamp(20px, 5vw, 30px);
             border-left: 4px solid var(--primary-green);
             border-radius: 4px;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--light-green);
-            transition: width 0.5s ease;
-        }
-
-        .stat-item:hover::before {
-            width: 100%;
         }
 
         .stat-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 10px 25px rgba(16,185,129,0.15);
             border-left-width: 6px;
         }
 
         .stat-number {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 56px;
+            font-size: clamp(2.5rem, 9vw, 4.5rem);
             color: var(--primary-green);
             line-height: 1;
             margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: clamp(0.9rem, 3.5vw, 1.1rem);
             color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
         }
 
-        /* Advantages Section */
-        .advantages {
-            padding: 80px 0;
-            background: var(--white);
+        .advantages,
+        .locations,
+        .business-model,
+        .contact {
+            padding: clamp(60px, 10vw, 80px) 0;
+            text-align: center;
         }
 
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 72px;
-            letter-spacing: 3px;
-            margin-bottom: 60px;
-            text-align: center;
+            font-size: clamp(2.2rem, 8vw, 4.5rem);
+            letter-spacing: 2px;
+            margin-bottom: clamp(2rem, 6vw, 4rem);
             color: var(--text-dark);
             position: relative;
-            display: inline-block;
-            width: 100%;
         }
 
         .section-title::after {
@@ -281,47 +217,34 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 80px;
             height: 4px;
             background: var(--primary-green);
             border-radius: 2px;
         }
 
-        .advantages-grid {
+        .advantages-grid,
+        .location-cards,
+        .model-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: clamp(25px, 5vw, 40px);
+            margin-top: clamp(40px, 8vw, 80px);
         }
 
-        .advantage-card {
+        .advantage-card,
+        .model-step {
             background: var(--white);
-            padding: 40px;
+            padding: clamp(25px, 5vw, 40px);
             border: 1px solid var(--border-gray);
             border-radius: 8px;
-            position: relative;
             transition: all 0.4s ease;
-            overflow: hidden;
         }
 
-        .advantage-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 0;
-            background: var(--primary-green);
-            transition: height 0.4s ease;
-        }
-
-        .advantage-card:hover::before {
-            height: 100%;
-        }
-
-        .advantage-card:hover {
+        .advantage-card:hover,
+        .model-step:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 20px 40px rgba(16,185,129,0.15);
             border-color: var(--primary-green);
         }
 
@@ -330,6 +253,8 @@
             height: 60px;
             margin-bottom: 20px;
             display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .advantage-icon svg {
@@ -339,54 +264,23 @@
 
         .advantage-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 32px;
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
             color: var(--text-dark);
             margin-bottom: 15px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .advantage-text {
-            font-size: 16px;
+            font-size: clamp(0.95rem, 3.8vw, 1.1rem);
             color: var(--text-gray);
-            line-height: 1.8;
-        }
-
-        /* Locations Section */
-        .locations {
-            padding: 80px 0;
-            background: var(--off-white);
-        }
-
-        .location-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 50px;
-            margin-top: 80px;
-        }
-
-        .location-card {
-            background: var(--white);
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            padding: 0;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.4s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .location-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
-            border-color: var(--primary-green);
+            line-height: 1.7;
         }
 
         .location-header {
             background: var(--primary-green);
             color: var(--white);
             padding: 25px 30px;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 36px;
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
             letter-spacing: 2px;
         }
 
@@ -395,7 +289,7 @@
         }
 
         .location-power {
-            font-size: 48px;
+            font-size: clamp(2.5rem, 10vw, 4rem);
             font-family: 'Bebas Neue', sans-serif;
             color: var(--primary-green);
             margin-bottom: 20px;
@@ -404,13 +298,14 @@
         .location-features {
             list-style: none;
             margin-top: 20px;
+            text-align: left;
         }
 
         .location-features li {
             padding: 12px 0;
             border-bottom: 1px solid var(--border-gray);
             color: var(--text-gray);
-            font-size: 15px;
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
         }
 
         .location-features li:last-child {
@@ -424,78 +319,33 @@
             margin-right: 10px;
         }
 
-        /* Business Model */
-        .business-model {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .model-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 80px;
-        }
-
-        .model-step {
-            background: var(--white);
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            border: 1px solid var(--border-gray);
-            border-top: 4px solid var(--primary-green);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .model-step:hover {
-            transform: translateY(-10px);
-            background: var(--light-green);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
-        }
-
-        .step-number {
+        .model-step .step-number {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 72px;
             color: var(--primary-green);
-            opacity: 0.2;
+            opacity: 0.15;
             line-height: 1;
+            margin-bottom: 10px;
         }
 
-        .step-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            color: var(--text-dark);
-            margin: 20px 0 15px;
-            letter-spacing: 1px;
-        }
-
-        .step-text {
-            color: var(--text-gray);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            border-top: 1px solid var(--border-gray);
+        .model-step .step-title {
+            font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+            margin: 10px 0 15px;
         }
 
         .contact h2 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 64px;
-            margin-bottom: 30px;
-            color: var(--text-dark);
-            letter-spacing: 3px;
+            font-size: clamp(2.5rem, 9vw, 4rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
         }
 
         .contact p {
-            font-size: 20px;
-            color: var(--text-gray);
-            margin-bottom: 50px;
+            font-size: clamp(1.1rem, 4vw, 1.25rem);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-form {
@@ -512,100 +362,31 @@
         .form-group textarea {
             width: 100%;
             padding: 15px 20px;
-            font-family: 'Space Mono', monospace;
             font-size: 16px;
             border: 2px solid var(--border-gray);
             border-radius: 4px;
             background: var(--white);
-            color: var(--text-dark);
             transition: all 0.3s ease;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            outline: none;
             border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+            outline: none;
         }
 
         .form-group textarea {
-            resize: vertical;
             min-height: 120px;
-        }
-
-        .contact-form .cta-button {
-            width: auto;
-            margin-top: 10px;
-            padding: 15px 40px;
-            font-size: 22px;
+            resize: vertical;
         }
 
         .button-wrapper {
             text-align: center;
         }
 
-        .contact .telegram-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--primary-green);
-            color: var(--white);
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            letter-spacing: 2px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-            z-index: 1;
-        }
-
-        .contact .telegram-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: left 0.5s ease;
-        }
-
-        .contact .telegram-button:hover::before {
-            left: 100%;
-        }
-
-        .contact .telegram-button:hover {
-            background: var(--dark-green);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-
-        #formMessage {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 4px;
-            font-size: 16px;
-            display: none;
-        }
-
-        #formMessage.success {
-            background: #d1fae5;
-            color: #065f46;
-            border: 1px solid var(--primary-green);
-        }
-
-        #formMessage.error {
-            background: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #ef4444;
-        }
-
-        /* Footer */
         footer {
-            padding: 40px 0;
+            padding: clamp(30px, 6vw, 40px) 0;
             background: var(--white);
             border-top: 1px solid var(--border-gray);
             text-align: center;
@@ -616,36 +397,27 @@
             font-size: 14px;
         }
 
-        /* Scroll animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 56px;
+            .container {
+                padding: 0 20px;
             }
 
-            .logo {
-                font-size: 36px;
+            .header-content {
+                align-items: center;
+                text-align: center;
             }
 
-            .section-title {
-                font-size: 48px;
+            .lang-switcher {
+                position: static;
+                margin-top: 12px;
+                align-self: center;
+            }
+
+            .lang-switcher a {
+                padding: 5px 10px;
+                font-size: 12px;
+                margin: 0 4px;
             }
 
             .advantages-grid,
@@ -654,34 +426,57 @@
                 grid-template-columns: 1fr;
             }
 
-            .container {
-                padding: 0 20px;
+            .cta-button,
+            .telegram-button {
+                width: 100%;
+                text-align: center;
             }
 
-            .lang-switcher {
-                right: 20px;
+            .hero h1 {
+                letter-spacing: clamp(1.2px, 1.5vw, 2.2px);
             }
+        }
+
+        @media (max-width: 414px) {
+            .hero h1 {
+                font-size: clamp(2.0rem, 8.5vw, 3.4rem);
+                letter-spacing: clamp(0.8px, 1.2vw, 1.8px);
+                line-height: 0.96;
+            }
+
+            .hero .subtitle {
+                font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+                padding: 0 8px;
+            }
+        }
+
+        h1, h2, h3, .section-title {
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="container">
-            <div class="lang-switcher">
-                <a href="greenpower-dc.html">RU</a>
-                <a href="greenpower-dc-en.html" class="active">EN</a>
+            <div class="header-content">
+                <div class="logo">GREENPOWER DC</div>
+                <div class="tagline">Kazakhstan Data Center Infrastructure</div>
+                <div class="lang-switcher">
+                    <a href="greenpower-dc.html">RU</a>
+                    <a href="greenpower-dc-en.html" class="active">EN</a>
+                </div>
             </div>
-            <div class="logo">GREENPOWER DC</div>
-            <div class="tagline">Kazakhstan Data Center Infrastructure</div>
         </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="container">
-                <h1>READY-MADE INFRASTRUCTURE<br>FOR YOUR BUSINESS</h1>
+                <h1>READY INFRASTRUCTURE<br>FOR YOUR BUSINESS</h1>
                 <p class="subtitle">
-                    We sell <span>land + energy + licenses</span> for AI, HPC, Data Centers and Mining projects.<br>
+                    We sell <span>land + power + licenses</span> for AI, HPC, Data Centers and Mining projects.<br>
                     <span>Ready assets</span> with the cheapest electricity in the region.
                 </p>
                 <a href="https://t.me/cryptocappone" class="cta-button" target="_blank">GET AN OFFER</a>
@@ -689,20 +484,18 @@
         </section>
 
         <section class="stats-bar">
-            <div class="container" style="max-width: 100%;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                    <div class="stat-item">
-                        <div class="stat-number">$0.035</div>
-                        <div class="stat-label">From cents per kWh</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">92-99%</div>
-                        <div class="stat-label">Load Factor for AI/Mining</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">TOP-5</div>
-                        <div class="stat-label">Kazakhstan in global location ranking</div>
-                    </div>
+            <div class="container">
+                <div class="stat-item">
+                    <div class="stat-number">$0.035</div>
+                    <div class="stat-label">From 3.5 cents per kWh</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">92-99%</div>
+                    <div class="stat-label">Load Factor for AI/Mining</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">TOP-5</div>
+                    <div class="stat-label">Kazakhstan in global location rankings</div>
                 </div>
             </div>
         </section>
@@ -711,17 +504,17 @@
             <div class="container">
                 <h2 class="section-title">WHY KAZAKHSTAN?</h2>
                 <div class="advantages-grid">
-                    <div class="advantage-card fade-in-up">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                             </svg>
                         </div>
                         <h3 class="advantage-title">Cheap Energy</h3>
-                        <p class="advantage-text">Tariff from $0.035/kWh. Long-term land lease for 20-30 years without capital costs for construction.</p>
+                        <p class="advantage-text">Rate from $0.035/kWh. Long-term land lease 20-30 years without capital construction costs.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up delay-1">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <circle cx="12" cy="12" r="10"/>
@@ -729,10 +522,10 @@
                             </svg>
                         </div>
                         <h3 class="advantage-title">Legal Certainty</h3>
-                        <p class="advantage-text">Astana Special Economic Zone (AIFC) with English law and international arbitration policy. Cryptocurrency mining is a licensed activity since 2023.</p>
+                        <p class="advantage-text">Astana International Financial Centre (AIFC) with English common law and international arbitration. Crypto mining is a licensed activity since 2023.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up delay-2">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
@@ -740,10 +533,10 @@
                             </svg>
                         </div>
                         <h3 class="advantage-title">Growing Market</h3>
-                        <p class="advantage-text">Global demand for AI/HPC capacity in 2025-2030 will exceed +1200% (Goldman Sachs). Kazakhstan is in the TOP-5 most attractive locations for 2025.</p>
+                        <p class="advantage-text">Global demand for AI/HPC capacity in 2026-2030 will exceed +1200% (Goldman Sachs). Kazakhstan ranks in TOP-5 most attractive locations in 2026.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -752,20 +545,20 @@
                             </svg>
                         </div>
                         <h3 class="advantage-title">Ready Infrastructure</h3>
-                        <p class="advantage-text">Proximity to electrical networks, land plots and power supply for mining. Dedicated electrical capacity of 10-50 MW per facility.</p>
+                        <p class="advantage-text">Proximity to power grids, land plots and mining power allocation. Dedicated electrical capacity 10-50 MW per site.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up delay-1">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                             </svg>
                         </div>
                         <h3 class="advantage-title">Stable Power Supply</h3>
-                        <p class="advantage-text">Guaranteed connection to networks. Compliance with regulatory requirements. Legal support for the transaction.</p>
+                        <p class="advantage-text">Guaranteed grid connection. Regulatory compliance. Legal support for the deal.</p>
                     </div>
 
-                    <div class="advantage-card fade-in-up delay-2">
+                    <div class="advantage-card">
                         <div class="advantage-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10b981;">
                                 <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/>
@@ -778,7 +571,7 @@
                             </svg>
                         </div>
                         <h3 class="advantage-title">Climate Conditions</h3>
-                        <p class="advantage-text">Cold climate significantly reduces equipment cooling costs — a critical factor for data centers and mining farms.</p>
+                        <p class="advantage-text">Cold climate significantly reduces cooling costs — a critical factor for data centers and mining farms.</p>
                     </div>
                 </div>
             </div>
@@ -793,8 +586,8 @@
                         <div class="location-body">
                             <div class="location-power">20 MW</div>
                             <ul class="location-features">
-                                <li>Strategic location in industrial region</li>
-                                <li>Developed infrastructure and access to transport highways</li>
+                                <li>Strategic location in an industrial region</li>
+                                <li>Developed infrastructure and access to transport routes</li>
                                 <li>Stable power supply and proximity to major cities</li>
                                 <li>Ideal for large data centers and AI clusters</li>
                             </ul>
@@ -811,31 +604,31 @@
                     <div class="model-step">
                         <div class="step-number">01</div>
                         <h3 class="step-title">Contract Signing</h3>
-                        <p class="step-text">Signing a contract with a management company that has all necessary licenses and power supply for mining</p>
+                        <p class="step-text">Signing a contract with the management company that holds all necessary licenses and mining power allocation</p>
                     </div>
 
                     <div class="model-step">
                         <div class="step-number">02</div>
-                        <h3 class="step-title">MOU Signing</h3>
-                        <p class="step-text">Memorandum with investor, agreement on terms and technical details</p>
+                        <h3 class="step-title">MOA Signing</h3>
+                        <p class="step-text">Memorandum with the investor, agreement on terms and technical details</p>
                     </div>
 
                     <div class="model-step">
                         <div class="step-number">03</div>
                         <h3 class="step-title">Advance Payment</h3>
-                        <p class="step-text">Receiving advance payment for access to ready infrastructure (land + energy)</p>
+                        <p class="step-text">Receiving an advance payment for access to ready infrastructure (land + power)</p>
                     </div>
 
                     <div class="model-step">
                         <div class="step-number">04</div>
                         <h3 class="step-title">Construction</h3>
-                        <p class="step-text">Investor builds facility with their own equipment (we do NOT build)</p>
+                        <p class="step-text">Investor builds the facility for their own equipment (we DO NOT build)</p>
                     </div>
 
                     <div class="model-step">
                         <div class="step-number">05</div>
                         <h3 class="step-title">Operation</h3>
-                        <p class="step-text">Monthly payments for energy and land lease</p>
+                        <p class="step-text">Monthly payments for electricity and land lease</p>
                     </div>
                 </div>
             </div>
@@ -843,12 +636,12 @@
 
         <section class="contact" id="contact">
             <div class="container">
-                <h2>START TODAY</h2>
-                <p>Contact us for a detailed offer and discussion of terms</p>
+                <h2>GET STARTED TODAY</h2>
+                <p>Contact us for a detailed offer and terms discussion</p>
                 
                 <form id="contactForm" class="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="Email" required>
@@ -857,7 +650,7 @@
                         <input type="tel" id="phone" name="phone" placeholder="Phone">
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                     </div>
                     <div class="button-wrapper">
                         <button type="submit" class="cta-button">SEND MESSAGE</button>
@@ -865,8 +658,8 @@
                 </form>
                 
                 <div style="margin-top: 40px;">
-                    <p style="font-size: 18px; color: var(--text-gray); margin-bottom: 20px;">Or write directly to Telegram:</p>
-                    <a href="https://t.me/cryptocappone" class="telegram-button" target="_blank">WRITE ON TELEGRAM</a>
+                    <p style="font-size: 18px; color: var(--text-gray); margin-bottom: 20px;">Or message us directly in Telegram:</p>
+                    <a href="https://t.me/cryptocappone" class="telegram-button" target="_blank">WRITE IN TELEGRAM</a>
                 </div>
             </div>
         </section>
@@ -874,94 +667,33 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 GreenPower DC Kazakhstan.</p>
+            <p>© 2026 GreenPower DC Kazakhstan.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-
-        // Contact Form Handler
         const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value
-            };
-
-            // Form mailto link
-            const subject = encodeURIComponent('New inquiry from GreenPower DC website');
-            const body = encodeURIComponent(
-                `Name: ${formData.name}\n` +
-                `Email: ${formData.email}\n` +
-                `Phone: ${formData.phone}\n\n` +
-                `Message:\n${formData.message}`
-            );
-            
-            const mailtoLink = `mailto:farabiznes@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Clear form
-            contactForm.reset();
-            
-            // Show success message
-            showMessage('Your email client should open. If this did not happen, write to us directly at farabiznes@gmail.com or on Telegram.', 'success');
+            const formData = new FormData(this);
+            const mailto = `mailto:farabiznes@gmail.com?subject=${encodeURIComponent('Application from website')}&body=${encodeURIComponent(
+                'Name: ' + formData.get('name') + '\n' +
+                'Email: ' + formData.get('email') + '\n' +
+                'Phone: ' + formData.get('phone') + '\n\n' +
+                'Message:\n' + formData.get('message')
+            )}`;
+            window.location.href = mailto;
+            this.reset();
         });
-
-        function showMessage(text, type) {
-            let messageDiv = document.getElementById('formMessage');
-            if (!messageDiv) {
-                messageDiv = document.createElement('div');
-                messageDiv.id = 'formMessage';
-                contactForm.appendChild(messageDiv);
-            }
-            
-            messageDiv.textContent = text;
-            messageDiv.className = type;
-            messageDiv.style.display = 'block';
-            
-            setTimeout(() => {
-                messageDiv.style.display = 'none';
-            }, 8000);
-        }
     </script>
 </body>
 </html>
